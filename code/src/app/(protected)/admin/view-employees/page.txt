@@ -1,0 +1,117 @@
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableFooter,
+    TableHead,
+    TableHeader,
+    TableRow,
+  } from "@/components/ui/table";
+  import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+  import { getAllEmployees } from "../../../../../actions/getEmployees";
+  const invoices = [
+    {
+      invoice: "INV001",
+      paymentStatus: "Paid",
+      totalAmount: "$250.00",
+      paymentMethod: "Credit Card",
+    },
+    {
+      invoice: "INV002",
+      paymentStatus: "Pending",
+      totalAmount: "$150.00",
+      paymentMethod: "PayPal",
+    },
+    {
+      invoice: "INV003",
+      paymentStatus: "Unpaid",
+      totalAmount: "$350.00",
+      paymentMethod: "Bank Transfer",
+    },
+    {
+      invoice: "INV004",
+      paymentStatus: "Paid",
+      totalAmount: "$450.00",
+      paymentMethod: "Credit Card",
+    },
+    {
+      invoice: "INV005",
+      paymentStatus: "Paid",
+      totalAmount: "$550.00",
+      paymentMethod: "PayPal",
+    },
+    {
+      invoice: "INV006",
+      paymentStatus: "Pending",
+      totalAmount: "$200.00",
+      paymentMethod: "Bank Transfer",
+    },
+    {
+      invoice: "INV007",
+      paymentStatus: "Unpaid",
+      totalAmount: "$300.00",
+      paymentMethod: "Credit Card",
+    },
+  ];
+  
+  async function TableDemo() {
+    const empleados = await getAllEmployees();
+    console.log(empleados)
+    return (
+      <div className="flex items-center justify-center bg-ocean p-4 rounded-lg">
+        { (empleados.length > 0) && (
+                <Card className="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6">
+                <CardHeader>
+                  <CardTitle className="text-center">Empleados</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Table>
+                    <TableCaption>Una lista con tus empleados.</TableCaption>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-[100px]">Nombre</TableHead>
+                        <TableHead>Apellido</TableHead>
+                        <TableHead>Teléfono</TableHead>
+                        <TableHead >Email</TableHead> {/* className="text-right" */}
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {empleados.map((empleado) => (
+                        <TableRow key={empleado.id}>
+                          <TableCell className>{empleado.firstname}</TableCell>
+                          <TableCell>{empleado.lastname}</TableCell>
+                          <TableCell>{empleado.cellphone}</TableCell>
+                          <TableCell>{empleado.email}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                    <TableFooter>
+                      <TableRow>
+                        <TableCell colSpan={3}>Total de empleados</TableCell>
+                        <TableCell className="text-right">{empleados.length}</TableCell>
+                      </TableRow>
+                    </TableFooter>
+                  </Table>
+                </CardContent>
+              </Card>
+        )}
+        { (empleados.length === 0) && (
+            (
+                <Card className="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6">
+                <CardHeader>
+                  <CardTitle className="text-center">Empleados</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    Parece que no hay empleados registrados. 😔
+                </CardContent>
+                </Card>                
+            )
+        )}
+
+      </div>
+    );
+  }
+  
+  export default TableDemo;
+  

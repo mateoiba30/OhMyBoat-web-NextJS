@@ -1,0 +1,34 @@
+
+
+import { User } from "lucide-react"
+import {
+    Menubar,
+    MenubarContent,
+    MenubarItem,
+    MenubarMenu,
+    MenubarSeparator,
+    MenubarShortcut,
+    MenubarTrigger,
+  } from "@/components/ui/menubar"
+
+
+export const HeaderIcon = () => {
+
+    return(
+    <Menubar>
+        <MenubarMenu>
+        <MenubarTrigger>{/* logito del usuario */ }<User/></MenubarTrigger>
+            <MenubarContent>
+                <MenubarItem>
+                Perfil
+                </MenubarItem>
+                <MenubarSeparator />
+                <MenubarItem>Otra funcionalidad</MenubarItem>
+            </MenubarContent>
+        </MenubarMenu>
+    </Menubar>
+
+    )
+
+}
+

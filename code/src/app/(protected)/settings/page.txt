@@ -1,0 +1,41 @@
+import { CerrarSesion } from "@/components/CerrarSesion";
+import { auth, signOut } from "../../../../auth"
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+  } from "@/components/ui/alert-dialog"
+
+const SettingsPage = async () => {
+    const session = await auth();
+    const {email,role} = session.user;
+    return (
+    <div>
+        <div>
+            Bienvenido!
+            <h2>Sus datos son
+                <h1> Email: {email}</h1>
+                <h1> Rol: {role}</h1>
+            </h2>
+        </div>
+        {JSON.stringify(session)}
+        <form action={async () => {"use server"
+        await signOut()}}>
+        <button type="submit">
+            Cerrar sesion
+        </button>
+        <div className="flex justify-center items-center h-screen">            
+        </div>
+        </form>
+
+    </div>
+    )
+}
+
+export default SettingsPage

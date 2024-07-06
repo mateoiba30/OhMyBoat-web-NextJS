@@ -1,0 +1,20 @@
+//import Credentials from "next-auth/providers/credentials"
+
+//import { NextAuthConfig } from "next-auth"
+ 
+//export default { providers: [Credentials] }
+
+import Credentials from "next-auth/providers/credentials";
+
+const authConfig = {
+  providers: [Credentials]
+};
+
+// Verificar si el objeto tiene una propiedad "providers" que sea un array
+if (Array.isArray(authConfig.providers)) {
+  console.log("El objeto cumple con NextAuthConfig.");
+} else {
+  console.log("El objeto no cumple con NextAuthConfig.");
+}
+
+export default authConfig;

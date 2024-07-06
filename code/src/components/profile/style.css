@@ -1,0 +1,42 @@
+
+.table-container {
+    float: left;
+    width: 100;
+    margin-right: 20px; 
+  }
+  
+  .parrafo-estetico {
+    border-radius: 5px;
+    background-color: white;
+    margin-bottom: 10px; 
+  }
+  
+  .informacionTotal{
+    display:justify;
+    margin-bottom: 30px;
+    width: 55%;
+  }
+  
+  .contenedor {
+    display: flex;
+    margin-bottom: 30px;
+    margin-right: 10px;
+  }
+  
+  .contenedorPrincipal {
+    margin-top: 100px;
+    display: flex;
+    margin-bottom: 30px;
+    margin-right: 20px;
+  }
+  
+  .boton {
+    margin-right: 10px;
+  }
+  
+  .foto{
+  
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }

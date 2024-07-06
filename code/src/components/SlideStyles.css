@@ -1,0 +1,39 @@
+/* styles.css */
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //background-color: #f0f0f0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.slider {
+  display: flex;
+  width: 100%;
+  animation: slide 15s linear infinite;
+}
+
+.slide {
+  flex: 0 0 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  //background-color: #3498db;
+  color: black;
+  font-size: 1.0rem;
+  text-align: center;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
